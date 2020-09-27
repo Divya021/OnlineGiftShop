@@ -1,0 +1,39 @@
+{% extends 'admin_home.html' %}
+{% block body %}
+<style>
+    button {
+  background-color: DarkSlateGrey;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+</style>
+<div class="container">
+    <center style="color:red"><h3>Assign Booking Status</h3><hr><br><br>
+        <form action="" method="post">
+        {% csrf_token %}
+    </center>
+        <center>Booking Id:
+        <input name="book" value="{{book.id}}" style="width:80%;height:30px"></center><br><br>
+        <center>Set Status:
+        <select name="st" style="width:80%;height:30px"></center>
+            {% for i in stat %}
+            <option>{{i.name}}</option>
+            {% endfor %}
+        </select><br><br>
+    <button type="submit">Submit</button>
+
+    </form>
+</center>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'User_navigation.html' %}
+{% block body %}
+
+<h2><center style="color:DarkSlateGrey"> Product</center></h2>
+{% for i in pro %}
+<hr><div class="container">
+
+    <img src="{{i.image.url}}" class="pull-left img-thumbnail img-responsive" style="height:150px;width:250px">
+    </div>
+<div class="container"><center>
+    <h4 style="color:orange">{{i.name}}[{{i.category.name}}]<hr></h4>
+    <h5>Description:-{{i.desc}}</h5>
+    <h5>Price:{{i.price}} .00 INR</h5>
+    <a href="{% url 'booking' i.id %}">BookNow</a></center>
+</div><hr>
+
+{% endfor %}
+{% endblock %}

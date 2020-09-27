@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Gift Shop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+`
+  <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+<style>
+
+.button {
+  background-color: orange;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+input ,[type=text],[type=password],[type=number],select,textarea,[type=submit] {
+    border-radius:8px;
+    width:60%;
+  }
+.button2 {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 12px;}
+.button2 {border-radius: 12px;}
+
+li a:hover:not(.active) {
+  background-color: green;
+  color: white;
+}
+
+
+li a.active {
+  background-color: green;
+  color: white;+
+}
+th{
+background-color:LightCoral;
+color:darkslategrey;
+}
+</style>
+
+
+</head>
+<body>
+<body style="background-color:white">
+<nav class="navbar navbar-expand-sm" style="background-color:lightcoral">
+    <ul class="nav navbar-nav">
+      <li class="navbar-brand" style="color:Orange"><h4>Admin Pannel</h4></li>
+      <li class="navbar-brand"><a href="{% url 'home' %}" style="color:darkslategrey">Home</a></li>
+      <div class="btn-group" align="right">
+ <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:darkslategrey">Products  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'admin_view_product' %}" style="color:black;">View Product</a></button>
+      <button class="dropdown-item" type="button"><a href="{% url 'add_product' %}" style="color:black">Add Product</a></button>
+  </div>
+</div>
+          <div class="btn-group" align="right">
+ <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:darkslategrey">Categary  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'view_categary' %}" style="color:black;">View Categary</a></button>
+      <button class="dropdown-item" type="button"><a href="{% url 'add_categary' %}" style="color:black">Add Categary</a></button>
+  </div>
+</div>
+        <div class="btn-group" align="right">
+ <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:darkslategrey">Booking  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'admin_viewBooking' %}" style="color:black;">View Booking</a></button>
+  </div>
+</div>
+            <div class="btn-group" align="right">
+ <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:darkslategrey">Feedback  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'view_feedback' %}" style="color:black">View Customer Feedback</a></button>
+  </div>
+</div>
+              <div class="btn-group" align="right">
+ <li class="navbar-brand"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:darkslategrey">Customer  <span class="caret"></span></a>
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'view_customer' %}" style="color:black">View Customer</a></button>
+  </div>
+</div>
+
+      <li class="navbar-brand"><a href="{% url 'logout_admin' %}" style="color:darkslategrey">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+</body>
+</html>

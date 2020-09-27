@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Online Book Shop</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th {
+  text-align: left;
+  padding: 12px;
+  background-color: lightcoral;
+  color: white;
+}
+#myTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.button {
+  background-color: DarkSlateGrey;
+  border: none;
+  color:white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+li a.active {
+  background-color: DarkSlateGrey;
+  color: white;
+}
+
+.button1 {border-radius: 15px;}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color:white">
+<nav class="navbar navbar-expand-sm" style="background-color:lightcoral">
+  <!-- Brand -->
+  <a class="nav-link" href="#" style="color:MediumBlue;font-size:50px">Gift <span style=" color:green ;font:bold">Shop</a>
+
+
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'home' %}" style="color:DarkSlateGrey">Home</a>
+    </li>
+
+    {% if request.user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_prifile' %}" style="color:DarkSlateGrey">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_booking' %}" style="color:DarkSlateGrey">View_Booking</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'send_feedback' request.user.id %}" style="color:DarkSlateGrey">Send feedback</a>
+    </li>
+       <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_product' %}" style="color:DarkSlateGrey">View Product</a>
+    </li>
+      <div class="btn-group" align="right">
+  <div class="dropdown-menu dropdown-menu-right" style="background-color:lightcoral">
+      <button class="dropdown-item" type="button"><a href="{% url 'login_admin' %}" style="color:black;">Admin Login</a></button>
+  </div>
+</div>
+
+ <li class="nav-item">
+      <a class="nav-link" href="{% url 'change_password' %}" style="color:DarkSlateGrey">Change Password</a>
+    </li>
+      <a class="nav-link" href="{% url 'logout' %}" style="color:DarkSlateGrey">Logout</a>
+    </li>
+    <li class="nav-item">
+    <h5  class="nav-link" style="color:Darkslategrey">Welcome {{request.user.username}}</h5>
+
+      </li>
+        {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}" style="color:DarkSlateGrey;text-align:right">Login</a>
+    </li>
+
+        {% endif %}
+
+    </ul>
+</nav>
+
+{% block body %}
+
+{% endblock %}
+</body></html>

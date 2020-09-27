@@ -1,0 +1,47 @@
+{% extends 'admin_navigation.html' %}
+{% block body %}
+<center><h2 style="color:DarkSlateGrey">View Booking</h2></center>
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Booking Date</th>
+    <th>Customer Name</th>
+    <th>Email ID</th>
+    <th>Contact</th>
+    <th>City</th>
+    <th>Address</th>
+      <th> Product name</th>
+    <th>Price</th>
+      <th>Quantity</th>
+      <th> Total</th>
+    <th>Status</th>
+    <th>Set Status</th>
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in book %}
+
+  <tr>
+    <td>{{i.book_date}}</td>
+      <td>{{i.c_name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.contact}}</td>
+      <td>{{i.city}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.pro_name}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.total}}</td>
+      <td>{{i.status.name}}</td>
+      <td><a href="{% url 'status' i.id %}"><button class="button button1">Set_Status</button></a></td>
+
+  </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+ </div>
+{% endblock %}

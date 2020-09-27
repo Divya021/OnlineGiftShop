@@ -1,0 +1,133 @@
+{% extends 'User_navigation.html' %}
+{% block body %}
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=date], input[type=text], input[type=number], input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+select{
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: DarkSlateGrey;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<h2 align="center">Booking Via Profile </h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <label for="date"><b>Booking Date :</b></label>
+    <input type="text"  name="date" value="{{date1}}" >
+
+    <label for="name"><b>Customer_name:</b></label>
+    <input type="text"  name="name" value="{{request.user.first_name}}" readonly>
+
+
+        <label for="city"><b>City:</b></label>
+    <input type="text"  name="city" value="{{pro1.city}}">
+
+    <label for="add"><b>Address:</b></label>
+    <input type="text"  name="add" value="{{pro1.address}}">
+
+
+        <label for="email"><b>Email ID:</b></label>
+    <input type="email"  name="email" value="{{request.user.email}}" >
+
+    <label for="contact"><b>Contact:</b></label>
+    <input type="number"  name="contact" value="{{pro1.contact}}" >
+
+        <label for="pname"><b>Product_name:</b></label>
+    <input type="text"  name="pname" value="{{pro.name}}" readonly>
+
+        <label for="price"><b>Price:</b></label>
+    <input type="number" id="sprice" name="price" value="{{pro.price}}">
+
+        <label for="quantity"><b>Quantity:</b></label>
+    <input type="number" id="quantity" placeholder="Enter Number of Book" name="quantity" onkeyup="calc()">
+
+        <label for="total"><b>Total:</b></label>
+    <input type="number" id="total" name="total">
+
+
+
+        <button type="submit">Submit</button>
+
+  </div>
+
+</form>
+<script>
+    function calc()
+    {
+
+     var quantity1 = document.getElementById("quantity").value;
+     var price1 = document.getElementById("sprice").value;
+     var totalprice = parseInt(quantity1)*parseInt(price1);
+
+     document.getElementById("total").value = totalprice;
+    }
+</script>
+
+
+{% endblock %}

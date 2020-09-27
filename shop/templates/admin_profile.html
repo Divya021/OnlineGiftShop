@@ -1,0 +1,15 @@
+{% extends 'admin_home.html' %}
+{% block body %}
+<div class="container"><h2 style="color:red"><center> Admin Profile</center> <hr></h2>
+    <center><h4><span style="color:blue">Name</span> : {{request.user.first_name}}<br>
+        <span style="color:blue">Date Of birth</span> : {{data.dob}}<br>
+        <span style="color:blue">City</span> : {{data.city}}<br>
+        <span style="color:blue">Address</span> : {{data.address}}<br>
+        <span style="color:blue">Email ID</span> : {{request.user.email}}<br>
+        <span style="color:blue">Contact Number</span> : {{data.contact}}<br></h4>
+    <a href="{% url 'edit_admin_profile' data.id %}"><button class="button button1">Edit Profile</button></a>
+
+    </center>
+</div>
+
+{% endblock %}

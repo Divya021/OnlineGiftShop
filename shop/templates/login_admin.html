@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input ,[type=text],[type=password],[type=number],select,textarea,[type=submit] {
+    border-radius:8px;
+    width:60%;
+  }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color:DarkSlateGrey ;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-info navbar-dark" style="background-color:lightcoral">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:DarkSlateGrey">Online Gift Shop</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<h2 align="center" style="color:DarkSlateGrey">Admin Login </h2>
+<center>
+<form action="" method="post">
+    {% csrf_token %}
+  <div class="imgcontainer">
+    <img src="{% static 'image/img_avatar3.png' %}" alt="Avatar" class="avatar" style="width:250px;height:250px">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+
+
+
+  </div>
+
+</form>
+</center>
+{% if error %}
+<script>
+    alert('Username or Password does not exist...')
+</script>
+{% endif %}
+
+</body>
+</html>

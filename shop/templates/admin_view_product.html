@@ -1,0 +1,46 @@
+{% extends 'admin_navigation.html' %}
+{% block body %}
+<center><h2 style="color:DarkSlateGrey">View Product</h2></center>
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Product Name</th>
+    <th>Image</th>
+      <th> Category</th>
+    <th>Price</th>
+       <th> Description</th>
+    <th>Delete</th>
+    <th>Edit</th>
+
+  </tr>
+  </thead>
+   <tbody>
+
+    {% for i in pro %}
+
+  <tr>
+
+    <td>{{i.name}}</td>
+    <td><img src="{{i.image.url}}" style="width:50px;height:50px"></td>
+      <td>{{i.category.name}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.desc}}</td>
+ <td><a href="{% url 'delete_product' i.id %}"><button class="button button1">delete</button></a></td>
+      <td><a href="{% url 'edit_product' i.id %}"><button class="button button1">edit</button></a></td>
+
+  </tr>
+
+    {% endfor %}
+    </tbody>
+{{count}}
+</table>
+
+ </div>
+<script>
+  {% for i in message %}
+  alert("{{i}}")
+  {% endfor %}
+</script>
+
+{% endblock %}

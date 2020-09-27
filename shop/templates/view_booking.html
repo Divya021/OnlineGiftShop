@@ -1,0 +1,47 @@
+{% extends 'User_navigation.html' %}
+{% block body %}
+{% if error %}
+<script>
+    alert('Delete Successfully');
+</script>
+{% endif %}
+<center><h2 style="color:DarkSlateGrey">View Booking</h2></center>
+<div class="container">
+</div>
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Booking ID</th>
+    <th>Booking Date</th>
+      <th> Product name</th>
+    <th>Price</th>
+      <th>Quantity</th>
+      <th> Total</th>
+    <th>Status</th>
+    <th>Cancel Booking</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in book %}
+
+  <tr>
+
+    <td>{{i.id}}</td>
+    <td>{{i.book_date}}</td>
+      <td>{{i.pro_name}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.total}}</td>
+      <td>{{i.status.name}}</td>
+      <td><a href="{% url 'delete_booking' i.id %}"><button class="button button1">cancel</button></a></td>
+
+  </tr>
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+{% endblock %}

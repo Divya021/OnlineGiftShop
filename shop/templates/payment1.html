@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+.button {
+  background-color: orange;
+  color: white;
+  border:none;
+  padding: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input ,[type=text],[type=password],[type=number],select,textarea,[type=submit] {
+    border-radius:8px;
+    width:60%;
+  }
+.button1 {border-radius: 50%;}
+.button2{border-radius: 50%;}
+</style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm" style="background-color:DarkMagenta">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#" style="color:orange">Online Gift Shop</a>
+
+    <a class="navbar-link" href="#" style="color:orange">Cheap And Best</a>
+
+  <!-- Links -->
+
+</nav>
+<div class="container">
+<center><h3 style="color:red">PAYMENT METHOD</h3><hr> </center>
+<center>
+
+
+
+    <br><br><h2 style="color:olive"><a href="#">Click Here To Payment</a></h2><hr><br><br><br><br><br>
+
+    <div class="container">
+    <div class="row">
+        <hr><div class="col-lg-6 "><hr>
+    <a href="{% url 'view_booking'  %}"><button class="button button1" >Cash On Delivery</button></a>
+    </div><hr>
+        <hr><div class="col-lg-6 "><hr>
+    <a href="{% url 'payment2'  %}"><button class="button button1" >Via Debit/Credit Card</button></a>
+    </div><hr>
+    </div>
+    </div>
+
+
+</center>
+</div>
+</body>
+</html>
